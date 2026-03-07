@@ -1,0 +1,38 @@
+<div class="shell-app min-h-screen text-slate-50">
+  <header class="border-b border-white/10 bg-slate-950/80 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+      <a routerLink="/" class="text-xl font-semibold tracking-tight text-white">
+        Tarefas com Native Federation
+      </a>
+
+      <nav class="flex items-center gap-2 text-sm">
+        <a
+          routerLink="/"
+          routerLinkActive="bg-white/10 text-white"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="rounded-full px-4 py-2 text-slate-300 transition hover:bg-white/10 hover:text-white"
+        >
+          Inicio
+        </a>
+        <a
+          routerLink="/lista-global"
+          routerLinkActive="bg-white/10 text-white"
+          class="rounded-full px-4 py-2 text-slate-300 transition hover:bg-white/10 hover:text-white"
+        >
+          Lista Global
+        </a>
+        <a
+          routerLink="/minhas-estatisticas"
+          routerLinkActive="bg-white/10 text-white"
+          class="rounded-full px-4 py-2 text-slate-300 transition hover:bg-white/10 hover:text-white"
+        >
+          Minhas Estatisticas
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-6 py-10">
+    <router-outlet />
+  </main>
+</div>
