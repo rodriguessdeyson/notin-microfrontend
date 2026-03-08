@@ -1,0 +1,19 @@
+@import '../../../styles/tailwind.css';
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(248, 113, 113, 0.16), transparent 28%),
+    radial-gradient(circle at right center, rgba(251, 191, 36, 0.16), transparent 25%), #f8fafc;
+  color: #0f172a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-app {
+  min-height: 100vh;
+}
