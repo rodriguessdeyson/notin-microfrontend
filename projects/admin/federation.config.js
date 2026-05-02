@@ -5,7 +5,7 @@ export default withNativeFederation({
 
   exposes: {
     './TodoRoutes': './projects/admin/src/app/todo/todo.routes.ts',
-    './StatusSummaryComponent': './projects/admin/src/app/status/status-summary.component.ts',
+    './StatusSummaryComponent': './projects/admin/src/app/status/components/status-summary/status-summary.component.ts',
   },
 
   shared: {
