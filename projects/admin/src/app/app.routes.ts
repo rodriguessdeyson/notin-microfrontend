@@ -8,7 +8,7 @@ export const routes: Routes = [
   {
     path: 'resumo-status',
     loadComponent: () =>
-      import('./status/status-summary-preview.component').then(
+      import('./status/components/status-summary/status-summary-preview.component').then(
         (m) => m.StatusSummaryPreviewComponent,
       ),
   },

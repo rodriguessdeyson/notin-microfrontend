@@ -1,0 +1,145 @@
+<section class="space-y-8">
+  <article class="surface-card bg-white/95">
+    <div class="flex flex-wrap items-start justify-between gap-6">
+      <div>
+        <p class="section-kicker text-rose-500">Pagina Remota Completa • Porta 4201</p>
+        <h2 class="mt-3 text-4xl font-semibold tracking-tight text-slate-950">
+          Lista Global de Tarefas
+        </h2>
+        <p class="mt-4 max-w-2xl text-base leading-8 text-slate-600">
+          Este painel e entregue completamente pelo remoto Admin e usa Angular Signals para
+          gerenciamento local de estado.
+        </p>
+      </div>
+
+      <div class="grid gap-3 sm:grid-cols-2">
+        <article class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Total</p>
+          <p class="mt-2 text-3xl font-semibold text-slate-950">
+            {{ store.summary().total }}
+          </p>
+        </article>
+        <article class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Concluidas</p>
+          <p class="mt-2 text-3xl font-semibold text-slate-950">
+            {{ store.summary().completed }}
+          </p>
+        </article>
+      </div>
+    </div>
+  </article>
+
+  <app-status-summary />
+
+  <section class="grid gap-8 xl:grid-cols-[0.8fr_1.2fr]">
+    <article class="surface-card bg-white/95">
+      <p class="section-kicker text-rose-500">Adicionar Tarefa</p>
+      <h3 class="mt-3 text-2xl font-semibold text-slate-950">Novo item de trabalho</h3>
+
+      <form class="mt-6 space-y-4" (ngSubmit)="addTodo()">
+        <label class="block space-y-2">
+          <span class="text-sm font-medium text-slate-700">Titulo</span>
+          <input
+            name="title"
+            [(ngModel)]="draft.title"
+            class="text-input"
+            placeholder="Escrever checklist de release"
+          />
+        </label>
+
+        <label class="block space-y-2">
+          <span class="text-sm font-medium text-slate-700">Responsavel</span>
+          <input
+            name="assignee"
+            [(ngModel)]="draft.assignee"
+            class="text-input"
+            placeholder="Maria"
+          />
+        </label>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="block space-y-2">
+            <span class="text-sm font-medium text-slate-700">Prioridade</span>
+            <select name="priority" [(ngModel)]="draft.priority" class="text-input">
+              <option value="low">Baixa</option>
+              <option value="medium">Media</option>
+              <option value="high">Alta</option>
+            </select>
+          </label>
+
+          <label class="block space-y-2">
+            <span class="text-sm font-medium text-slate-700">Data limite</span>
+            <input name="dueDate" type="date" [(ngModel)]="draft.dueDate" class="text-input" />
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary w-full justify-center">
+          Adicionar tarefa
+        </button>
+      </form>
+    </article>
+
+    <article class="surface-card bg-white/95">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <p class="section-kicker text-rose-500">Fila Atual</p>
+          <h3 class="mt-3 text-2xl font-semibold text-slate-950">Backlog do time</h3>
+        </div>
+
+        <div
+          class="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-600"
+        >
+          {{ store.summary().completionRate }}% de conclusao
+        </div>
+      </div>
+
+      <div class="mt-6 space-y-4">
+        @for (todo of store.todos(); track todo.id) {
+          <article class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+            <div class="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="todo-chip bg-slate-900 text-white">
+                    {{ labelForStatus(todo.status) }}
+                  </span>
+                  <span
+                    class="todo-chip"
+                    [ngClass]="{
+                      'bg-emerald-100 text-emerald-700': todo.priority === 'low',
+                      'bg-amber-100 text-amber-700': todo.priority === 'medium',
+                      'bg-rose-100 text-rose-700': todo.priority === 'high',
+                    }"
+                  >
+                    prioridade {{ priorityLabel(todo.priority) }}
+                  </span>
+                </div>
+
+                <h4 class="mt-4 text-xl font-semibold text-slate-950">{{ todo.title }}</h4>
+                <p class="mt-2 text-sm leading-7 text-slate-600">
+                  Responsavel: <strong>{{ todo.assignee }}</strong> • Prazo {{ todo.dueDate }}
+                </p>
+              </div>
+
+              <div class="flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  class="btn-secondary"
+                  (click)="store.cycleStatus(todo.id)"
+                >
+                  Avancar status
+                </button>
+                <button
+                  type="button"
+                  class="rounded-full border border-rose-200 px-4 py-2 text-sm font-medium text-rose-600 transition hover:bg-rose-50"
+                  (click)="store.removeTodo(todo.id)"
+                >
+                  Remover
+                </button>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </article>
+  </section>
+</section>
