@@ -6,7 +6,7 @@ export const routes: Routes = [
     loadChildren: () => import('./todo/todo.routes').then((m) => m.TODO_ROUTES),
   },
   {
-    path: 'resumo-status',
+    path: 'status-preview',
     loadComponent: () =>
       import('./status/components/status-summary/status-summary-preview.component').then(
         (m) => m.StatusSummaryPreviewComponent,
@@ -14,7 +14,7 @@ export const routes: Routes = [
   },
   {
     path: 'status-summary',
-    redirectTo: 'resumo-status',
+    redirectTo: 'status-preview',
   },
   {
     path: '**',

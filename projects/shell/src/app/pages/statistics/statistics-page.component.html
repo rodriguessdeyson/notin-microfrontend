@@ -1,20 +1,20 @@
 <section class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
   <article class="surface-card">
-    <p class="section-kicker">Composicao Hibrida</p>
-    <h1 class="mt-4 text-4xl font-semibold text-white">Minhas Estatisticas</h1>
+    <p class="section-kicker">Hybrid Composition</p>
+    <h1 class="mt-4 text-4xl font-semibold text-white">My Statistics</h1>
     <p class="mt-4 max-w-xl text-base leading-8 text-slate-300">
-      Esta rota continua dentro do shell, mas o widget de status vem do remoto Admin. Ele e
-      carregado em tempo de execucao via Native Federation e renderizado como um fragmento.
+      This route remains within the shell, but the status widget comes from the remote Admin. It is
+      loaded at runtime via Native Federation and rendered as a fragment.
     </p>
 
     <div class="mt-8 rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-slate-300">
-      <p class="font-semibold text-white">Contrato de composicao</p>
+      <p class="font-semibold text-white">Composition contract</p>
       <p class="mt-2">
-        Rota e layout do shell na porta 4200, com fragmento de resumo exposto pelo Admin na
-        porta 4201.
+        Shell route and layout on port 4200, with summary fragment exposed by Admin on
+        port 4201.
       </p>
-      <a routerLink="/lista-global" class="mt-5 inline-flex text-cyan-300 hover:text-cyan-200">
-        Abrir o painel remoto completo
+      <a routerLink="/global-tasks" class="mt-5 inline-flex text-cyan-300 hover:text-cyan-200">
+        Open the complete remote dashboard
       </a>
     </div>
   </article>
@@ -22,14 +22,14 @@
   <section class="space-y-4">
     @if (state() === 'loading') {
       <div class="surface-card text-slate-200">
-        Carregando o Resumo de Status do remoto Admin...
+        Loading Status Summary from remote Admin...
       </div>
     }
 
     @if (state() === 'error') {
       <div class="surface-card border-red-400/40 text-slate-100">
-        Nao foi possivel carregar o fragmento. Inicie o remoto Admin na porta 4201 e atualize a
-        pagina.
+        Could not load the fragment. Start the remote Admin on port 4201 and refresh the
+        page.
       </div>
     }
 

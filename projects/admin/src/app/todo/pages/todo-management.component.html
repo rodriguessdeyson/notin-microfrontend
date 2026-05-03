@@ -2,13 +2,13 @@
   <article class="surface-card bg-slate-950/95 border border-white/10 mb-5">
     <div class="flex flex-wrap items-start justify-between gap-6">
       <div>
-        <p class="section-kicker text-cyan-300">Pagina Remota Completa • Porta 4201</p>
+        <p class="section-kicker text-cyan-300">Complete Remote Page • Port 4201</p>
         <h2 class="mt-3 text-4xl font-semibold tracking-tight text-white">
-          Lista Global de Tarefas
+          Global Task List
         </h2>
         <p class="mt-4 max-w-2xl text-base leading-8 text-slate-400">
-          Este painel e entregue completamente pelo remoto Admin e usa Angular Signals para
-          gerenciamento local de estado.
+          This dashboard is delivered completely by the remote Admin and uses Angular Signals for
+          local state management.
         </p>
       </div>
 
@@ -20,7 +20,7 @@
           </p>
         </article>
         <article class="rounded-3xl border border-white/10 bg-slate-900/80 p-5">
-          <p class="text-xs uppercase tracking-[0.24em] text-slate-400">Concluidas</p>
+          <p class="text-xs uppercase tracking-[0.24em] text-slate-400">Completed</p>
           <p class="mt-2 text-3xl font-semibold text-white">
             {{ store.summary().completed }}
           </p>
@@ -33,48 +33,48 @@
 
   <section class="grid gap-8 xl:grid-cols-[0.8fr_1.2fr]">
     <article class="surface-card bg-slate-950/95 border border-white/10">
-      <p class="section-kicker text-cyan-300">Adicionar Tarefa</p>
-      <h3 class="mt-3 text-2xl font-semibold text-white">Novo item de trabalho</h3>
+      <p class="section-kicker text-cyan-300">Add Task</p>
+      <h3 class="mt-3 text-2xl font-semibold text-white">New work item</h3>
 
       <form class="mt-6 space-y-4" (ngSubmit)="addTodo()">
         <label class="block space-y-2">
-          <span class="text-sm font-medium text-slate-300">Titulo</span>
+          <span class="text-sm font-medium text-slate-300">Title</span>
           <input
             name="title"
             [(ngModel)]="draft.title"
             class="text-input"
-            placeholder="Escrever checklist de release"
+            placeholder="Write release checklist"
           />
         </label>
 
         <label class="block space-y-2">
-          <span class="text-sm font-medium text-slate-300">Responsavel</span>
+          <span class="text-sm font-medium text-slate-300">Assignee</span>
           <input
             name="assignee"
             [(ngModel)]="draft.assignee"
             class="text-input"
-            placeholder="Maria"
+            placeholder="John"
           />
         </label>
 
         <div class="grid gap-4 sm:grid-cols-2">
           <label class="block space-y-2">
-            <span class="text-sm font-medium text-slate-300">Prioridade</span>
+            <span class="text-sm font-medium text-slate-300">Priority</span>
             <select name="priority" [(ngModel)]="draft.priority" class="text-input">
-              <option value="low">Baixa</option>
-              <option value="medium">Media</option>
-              <option value="high">Alta</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
             </select>
           </label>
 
           <label class="block space-y-2">
-            <span class="text-sm font-medium text-slate-300">Data limite</span>
+            <span class="text-sm font-medium text-slate-300">Due Date</span>
             <input name="dueDate" type="date" [(ngModel)]="draft.dueDate" class="text-input" />
           </label>
         </div>
 
         <button type="submit" class="btn-primary w-full justify-center">
-          Adicionar tarefa
+          Add Task
         </button>
       </form>
     </article>
@@ -82,14 +82,14 @@
     <article class="surface-card bg-slate-950/95 border border-white/10">
       <div class="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <p class="section-kicker text-cyan-300">Fila Atual</p>
-          <h3 class="mt-3 text-2xl font-semibold text-white">Backlog do time</h3>
+          <p class="section-kicker text-cyan-300">Current Queue</p>
+          <h3 class="mt-3 text-2xl font-semibold text-white">Team Backlog</h3>
         </div>
 
         <div
           class="rounded-full border border-white/10 bg-slate-900/80 px-4 py-2 text-sm text-slate-300"
         >
-          {{ store.summary().completionRate }}% de conclusao
+          {{ store.summary().completionRate }}% complete
         </div>
       </div>
 
@@ -110,13 +110,13 @@
                       'bg-rose-100 text-rose-700': todo.priority === 'high',
                     }"
                   >
-                    prioridade {{ priorityLabel(todo.priority) }}
+                    priority {{ priorityLabel(todo.priority) }}
                   </span>
                 </div>
 
                 <h4 class="mt-4 text-xl font-semibold text-white">{{ todo.title }}</h4>
                 <p class="mt-2 text-sm leading-7 text-slate-400">
-                  Responsavel: <strong>{{ todo.assignee }}</strong> • Prazo {{ todo.dueDate }}
+                  Assignee: <strong>{{ todo.assignee }}</strong> • Due {{ todo.dueDate }}
                 </p>
               </div>
 
@@ -126,14 +126,14 @@
                   class="btn-secondary"
                   (click)="store.cycleStatus(todo.id)"
                 >
-                  Avancar status
+                  Advance Status
                 </button>
                 <button
                   type="button"
                   class="rounded-full border border-rose-200 px-4 py-2 text-sm font-medium text-rose-600 transition hover:bg-rose-50"
                   (click)="store.removeTodo(todo.id)"
                 >
-                  Remover
+                  Delete
                 </button>
               </div>
             </div>

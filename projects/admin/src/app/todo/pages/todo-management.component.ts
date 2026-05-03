@@ -36,21 +36,21 @@ export class TodoManagementComponent {
 
   protected labelForStatus(status: TodoItem['status']): string {
     if (status === 'in-progress') {
-      return 'Em andamento';
+      return 'In Progress';
     }
 
-    return status === 'done' ? 'Concluida' : 'A fazer';
+    return status === 'done' ? 'Completed' : 'To Do';
   }
 
   protected priorityLabel(priority: TodoItem['priority']): string {
     if (priority === 'high') {
-      return 'alta';
+      return 'high';
     }
 
     if (priority === 'medium') {
-      return 'media';
+      return 'medium';
     }
 
-    return 'baixa';
+    return 'low';
   }
 }

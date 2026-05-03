@@ -23,7 +23,7 @@ export class StatisticsPageComponent {
       this.fragmentComponent.set(remoteModule.StatusSummaryComponent);
       this.state.set('ready');
     } catch (error) {
-      console.error('Nao foi possivel carregar o fragmento de resumo de status', error);
+      console.error('Failed to load status summary fragment', error);
       this.state.set('error');
     }
   }

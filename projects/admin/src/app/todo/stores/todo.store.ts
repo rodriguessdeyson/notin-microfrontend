@@ -4,7 +4,7 @@ import { TodoDraft, TodoItem, TodoStatus } from '../models/todo.models';
 const initialTodos: TodoItem[] = [
   {
     id: 1,
-    title: 'Alinhar etiquetas do backlog entre os times',
+    title: 'Align backlog labels across teams',
     assignee: 'Ana',
     status: 'in-progress',
     priority: 'high',
@@ -12,7 +12,7 @@ const initialTodos: TodoItem[] = [
   },
   {
     id: 2,
-    title: 'Publicar notas de release do shell',
+    title: 'Publish shell release notes',
     assignee: 'Caio',
     status: 'todo',
     priority: 'medium',
@@ -20,7 +20,7 @@ const initialTodos: TodoItem[] = [
   },
   {
     id: 3,
-    title: 'Arquivar historias concluidas da sprint',
+    title: 'Archive completed sprint stories',
     assignee: 'Rafa',
     status: 'done',
     priority: 'low',
@@ -28,7 +28,7 @@ const initialTodos: TodoItem[] = [
   },
   {
     id: 4,
-    title: 'Preparar checklist de handoff para QA',
+    title: 'Prepare QA handoff checklist',
     assignee: 'Lia',
     status: 'in-progress',
     priority: 'high',

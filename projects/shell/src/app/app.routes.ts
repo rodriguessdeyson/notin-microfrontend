@@ -7,21 +7,21 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home/home-page.component').then((m) => m.HomePageComponent),
   },
   {
-    path: 'lista-global',
+    path: 'global-tasks',
     loadChildren: () => loadRemoteModule('admin', './TodoRoutes').then((m) => m.TODO_ROUTES),
   },
   {
-    path: 'minhas-estatisticas',
+    path: 'statistics',
     loadComponent: () =>
       import('./pages/statistics/statistics-page.component').then((m) => m.StatisticsPageComponent),
   },
   {
     path: 'global-todos',
-    redirectTo: 'lista-global',
+    redirectTo: 'global-tasks',
   },
   {
     path: 'my-statistics',
-    redirectTo: 'minhas-estatisticas',
+    redirectTo: 'statistics',
   },
   {
     path: '**',
