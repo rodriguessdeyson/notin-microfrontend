@@ -16,33 +16,33 @@ import { TodoStore } from '../../../todo/stores/todo.store';
         </div>
 
         <div
-          class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200"
+          class="rounded-full border border-white/10 bg-slate-900/80 px-4 py-2 text-sm text-slate-200"
         >
           {{ store.summary().completionRate }}% concluido
         </div>
       </div>
 
       <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <article class="rounded-3xl border border-white/10 bg-white/5 p-5">
+        <article class="rounded-3xl border border-white/10 bg-slate-900/80 p-5">
           <p class="text-sm uppercase tracking-[0.24em] text-slate-400">A Fazer</p>
           <p class="mt-3 text-4xl font-semibold text-white">{{ store.summary().open }}</p>
         </article>
 
-        <article class="rounded-3xl border border-white/10 bg-white/5 p-5">
+        <article class="rounded-3xl border border-white/10 bg-slate-900/80 p-5">
           <p class="text-sm uppercase tracking-[0.24em] text-slate-400">Em Andamento</p>
           <p class="mt-3 text-4xl font-semibold text-white">
             {{ store.summary().inProgress }}
           </p>
         </article>
 
-        <article class="rounded-3xl border border-white/10 bg-white/5 p-5">
+        <article class="rounded-3xl border border-white/10 bg-slate-900/80 p-5">
           <p class="text-sm uppercase tracking-[0.24em] text-slate-400">Alta Prioridade</p>
           <p class="mt-3 text-4xl font-semibold text-white">
             {{ store.summary().highPriority }}
           </p>
         </article>
 
-        <article class="rounded-3xl border border-white/10 bg-white/5 p-5">
+        <article class="rounded-3xl border border-white/10 bg-slate-900/80 p-5">
           <p class="text-sm uppercase tracking-[0.24em] text-slate-400">Atrasadas</p>
           <p class="mt-3 text-4xl font-semibold text-white">{{ store.summary().overdue }}</p>
         </article>
